@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 頁面未找到 | 國立陽明交通大學</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Microsoft JhengHei', '微軟正黑體', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a192f 0%, #112240 50%, #1a365d 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated background particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 215, 0, 0.3);
+            border-radius: 50%;
+            animation: float 15s infinite;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) translateX(0px);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 60px 50px;
+            max-width: 700px;
+            width: 100%;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 215, 0, 0.1);
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            animation: slideIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(40px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .logo-container {
+            margin-bottom: 30px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .logo {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #003366 0%, #1a5276 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 8px 25px rgba(0, 51, 102, 0.4);
+        }
+
+        .logo::before {
+            content: '';
+            position: absolute;
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4a 100%);
+            opacity: 0.2;
+            animation: spin 10s linear infinite;
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .logo-text {
+            color: #ffd700;
+            font-size: 42px;
+            font-weight: 900;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            letter-spacing: 4px;
+        }
+
+        .error-code {
+            font-size: 120px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #003366 0%, #1a5276 50%, #2c3e50 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .error-code::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #ffd700, #ffed4a, #ffd700);
+            border-radius: 2px;
+        }
+
+        .title {
+            font-size: 28px;
+            color: #2c3e50;
+            margin: 25px 0 15px;
+            font-weight: 700;
+        }
+
+        .description {
+            font-size: 16px;
+            color: #5a6c7d;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .subdomain {
+            background: #f0f4f8;
+            padding: 10px 20px;
+            border-radius: 8px;
+            color: #003366;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            display: inline-block;
+            margin: 10px 0 20px;
+            border-left: 4px solid #ffd700;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 35px;
+        }
+
+        .btn {
+            padding: 14px 30px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #003366 0%, #1a5276 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 51, 102, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 51, 102, 0.5);
+            background: linear-gradient(135deg, #004080 0%, #1a5a8a 100%);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #003366;
+            border: 2px solid #003366;
+        }
+
+        .btn-secondary:hover {
+            background: #f8f9fa;
+            transform: translateY(-2px);
+            border-color: #004080;
+            box-shadow: 0 4px 15px rgba(0, 51, 102, 0.2);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .info-section {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .help-links {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .help-link {
+            color: #5a6c7d;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .help-link:hover {
+            color: #003366;
+            transform: translateX(3px);
+        }
+
+        .search-box {
+            margin-top: 30px;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .search-input {
+            padding: 12px 20px;
+            border: 2px solid #e2e8f0;
+            border-radius: 50px;
+            font-size: 14px;
+            width: 250px;
+            transition: all 0.3s;
+            outline: none;
+            font-family: inherit;
+        }
+
+        .search-input:focus {
+            border-color: #003366;
+            box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.1);
+        }
+
+        .search-btn {
+            background: #003366;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+
+        .search-btn:hover {
+            background: #004080;
+            box-shadow: 0 4px 15px rgba(0, 51, 102, 0.3);
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 12px;
+            color: #a0aec0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 25px;
+            }
+            
+            .error-code {
+                font-size: 80px;
+            }
+            
+            .title {
+                font-size: 22px;
+            }
+            
+            .button-group {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .search-box {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .search-input {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated particles background -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Main container -->
+    <div class="container">
+        <!-- University Logo -->
+        <div class="logo-container">
+            <div class="logo">
+                <span class="logo-text">NYCU</span>
+            </div>
+        </div>
+
+        <!-- Error Code -->
+        <div class="error-code">404</div>
+
+        <!-- Title -->
+        <h1 class="title">頁面未找到</h1>
+        
+        <!-- Description -->
+        <p class="description">
+            抱歉，您所尋找的頁面不存在或已被移動。<br>
+            請檢查網址是否正確，或返回首頁瀏覽其他內容。
+        </p>
+
+        <!-- Current subdomain info -->
+        <div class="subdomain">
+            <span id="currentUrl"></span>
+        </div>
+
+        <!-- Action buttons -->
+        <div class="button-group">
+            <button class="btn btn-primary" onclick="goHome()">
+                🏠 返回首頁
+            </button>
+            <button class="btn btn-secondary" onclick="goBack()">
+                ← 返回上一頁
+            </button>
+        </div>
+
+        <!-- Search section -->
+        <div class="search-box">
+            <input type="text" class="search-input" id="searchInput" 
+                   placeholder="搜尋 NYCU 網站..." 
+                   onkeypress="handleSearchKeyPress(event)">
+            <button class="search-btn" onclick="performSearch()">
+                🔍 搜尋
+            </button>
+        </div>
+
+        <!-- Info section -->
+        <div class="info-section">
+            <p style="color: #5a6c7d; font-size: 14px; margin-bottom: 10px;">
+                您也可以嘗試以下連結：
+            </p>
+            <div class="help-links">
+                <a href="https://www.nycu.edu.tw" class="help-link" target="_blank">
+                    🎓 NYCU 首頁
+                </a>
+                <a href="https://www.nycu.edu.tw/sitemap" class="help-link" target="_blank">
+                    📑 網站地圖
+                </a>
+                <a href="mailto:webmaster@nycu.edu.tw" class="help-link">
+                    📧 聯絡管理員
+                </a>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>© 2024 國立陽明交通大學 National Yang Ming Chiao Tung University</p>
+            <p style="margin-top: 5px;">版權所有 © All Rights Reserved</p>
+        </div>
+    </div>
+
+    <script>
+        // Initialize particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const numberOfParticles = 30;
+            
+            for (let i = 0; i < numberOfParticles; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                // Random size between 2-6px
+                const size = Math.random() * 4 + 2;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                
+                // Random position
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.bottom = -(Math.random() * 20) + 'px';
+                
+                // Random animation duration
+                const duration = Math.random() * 10 + 10;
+                particle.style.animationDuration = duration + 's';
+                
+                // Random delay
+                particle.style.animationDelay = Math.random() * 5 + 's';
+                
+                // Random opacity
+                const opacity = Math.random() * 0.4 + 0.1;
+                particle.style.background = `rgba(255, 215, 0, ${opacity})`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Display current URL
+        function displayCurrentUrl() {
+            const urlElement = document.getElementById('currentUrl');
+            const currentUrl = window.location.href;
+            urlElement.textContent = '🔗 ' + currentUrl;
+        }
+
+        // Navigation functions
+        function goHome() {
+            // Redirect to NYCU main website
+            window.location.href = 'https://www.nycu.edu.tw';
+        }
+
+        function goBack() {
+            if (document.referrer && document.referrer !== '') {
+                window.history.back();
+            } else {
+                // If no referrer, go to home page
+                window.location.href = 'https://www.nycu.edu.tw';
+            }
+        }
+
+        // Search functionality
+        function performSearch() {
+            const searchInput = document.getElementById('searchInput');
+            const searchTerm = searchInput.value.trim();
+            
+            if (searchTerm) {
+                // Search NYCU website using Google custom search
+                const searchUrl = 'https://www.google.com/search?q=site:nycu.edu.tw+' + encodeURIComponent(searchTerm);
+                window.open(searchUrl, '_blank');
+            } else {
+                // Shake animation for empty input
+                searchInput.style.borderColor = '#e53e3e';
+                searchInput.style.animation = 'shake 0.5s';
+                setTimeout(() => {
+                    searchInput.style.borderColor = '#e2e8f0';
+                    searchInput.style.animation = '';
+                }, 500);
+            }
+        }
+
+        function handleSearchKeyPress(event) {
+            if (event.key === 'Enter') {
+                performSearch();
+            }
+        }
+
+        // Add shake animation
+        const shakeStyle = document.createElement('style');
+        shakeStyle.textContent = `
+            @keyframes shake {
+                0%, 100% { transform: translateX(0); }
+                25% { transform: translateX(-5px); }
+                75% { transform: translateX(5px); }
+            }
+        `;
+        document.head.appendChild(shakeStyle);
+
+        // Auto-redirect countdown (optional)
+        function startAutoRedirect() {
+            // Uncomment the following code to enable auto-redirect after 30 seconds
+            /*
+            let countdown = 30;
+            const countdownElement = document.createElement('p');
+            countdownElement.style.cssText = 'margin-top: 20px; color: #5a6c7d; font-size: 14px;';
+            countdownElement.id = 'countdown';
+            document.querySelector('.container').appendChild(countdownElement);
+            
+            const countdownInterval = setInterval(() => {
+                countdownElement.textContent = `將在 ${countdown} 秒後自動返回首頁...`;
+                countdown--;
+                
+                if (countdown < 0) {
+                    clearInterval(countdownInterval);
+                    window.location.href = 'https://www.nycu.edu.tw';
+                }
+            }, 1000);
+            */
+        }
+
+        // Analytics tracking (optional)
+        function track404Error() {
+            // You can implement analytics tracking here
+            // For example, Google Analytics or custom analytics
+            console.log('404 Error tracked:', {
+                url: window.location.href,
+                timestamp: new Date().toISOString(),
+                referrer: document.referrer || 'direct',
+                userAgent: navigator.userAgent
+            });
+            
+            // Send to server-side analytics if needed
+            /*
+            fetch('/api/track-404', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    url: window.location.href,
+                    timestamp: new Date().toISOString(),
+                    referrer: document.referrer
+                })
+            }).catch(err => console.log('Analytics error:', err));
+            */
+        }
+
+        // Initialize all functions when page loads
+        window.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+            displayCurrentUrl();
+            track404Error();
+            // startAutoRedirect(); // Uncomment to enable auto-redirect
+            
+            // Focus search input for better UX
+            setTimeout(() => {
+                document.getElementById('searchInput').focus();
+            }, 1000);
+        });
+
+        // Handle browser back/forward buttons
+        window.addEventListener('popstate', function(event) {
+            // Update displayed URL if user navigates
+            displayCurrentUrl();
+        });
+    </script>
+</body>
+</html>
