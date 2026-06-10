@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Page Not Found | University of Minnesota</title>
+    <style>
+        :root {
+            --umn-maroon: #7A0019;
+            --umn-gold: #FFCC33;
+            --umn-dark: #222222;
+            --umn-grey: #5A5A5A;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans', Arial, sans-serif;
+            background-color: #F9F9F9;
+            color: var(--umn-dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            background: white;
+            padding: 60px 40px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            max-width: 550px;
+            width: 90%;
+            border-top: 6px solid var(--umn-maroon);
+        }
+
+        .error-code {
+            font-size: 6.5rem;
+            font-weight: 800;
+            margin: 0;
+            color: var(--umn-maroon);
+            line-height: 1;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        p {
+            color: var(--umn-grey);
+            margin-bottom: 30px;
+            line-height: 1.6;
+            font-size: 1.05rem;
+        }
+
+        .btn-home {
+            display: inline-block;
+            background-color: var(--umn-gold);
+            color: var(--umn-dark);
+            padding: 14px 32px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.2s ease-in-out;
+            border: 2px solid var(--umn-gold);
+        }
+
+        .btn-home:hover {
+            background-color: var(--umn-maroon);
+            color: white;
+            border-color: var(--umn-maroon);
+            transform: translateY(-1px);
+        }
+
+        .redirect-notice {
+            margin-top: 25px;
+            font-size: 0.9rem;
+            color: var(--umn-grey);
+        }
+
+        .redirect-notice span {
+            color: var(--umn-maroon);
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="error-code">404</div>
+        <h1>Page Not Found</h1>
+        <p>The page you are looking for on this subdomain might have been removed, had its name changed, or is temporarily unavailable.</p>
+        
+        <a href="https://umn.edu/" class="btn-home">Go to UMN Home</a>
+        
+        <div class="redirect-notice">
+            You will be automatically redirected to the main campus website in <span id="timer">10</span> seconds.
+        </div>
+    </div>
+
+    <script>
+        // Automatic redirection countdown
+        let count = 10;
+        const timerDisplay = document.getElementById('timer');
+
+        const countdown = setInterval(() => {
+            count--;
+            timerDisplay.textContent = count;
+
+            if (count <= 0) {
+                clearInterval(countdown);
+                window.location.href = 'https://umn.edu/';
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
